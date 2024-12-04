@@ -1,5 +1,5 @@
 import { MouseEvent, useState } from "react";
-import "./ListGroup.css";
+import styles from "./ListGroup.module.css";
 
 interface Props {
   items: string[];
@@ -22,7 +22,7 @@ function ListGroup({ items, heading, onSelectItem }: Props) {
       {items.length === 0 && <p>No items found</p>}
       {/* We can replace the previous line with a function call*/}
       {/* {getMessage()} */}
-      <ul className="list-group">
+      <ul className={[styles.container, styles.listGroup].join(" ")}>
         {items.map((item, index) => (
           <li
             className={
