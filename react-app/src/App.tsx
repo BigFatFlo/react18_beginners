@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Alert from "./components/Alert";
-import Button from "./components/Button";
+import Button from "./components/Button/Button";
 import ListGroup from "./components/ListGroup";
 import { BsFillCalendarFill } from "react-icons/bs";
 
