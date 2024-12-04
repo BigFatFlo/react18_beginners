@@ -2,8 +2,6 @@ import { useState } from "react";
 import Alert from "./components/Alert";
 import Button from "./components/Button";
 import ListGroup from "./components/ListGroup";
-// Without using a css module for ListGroup, the styles in App.css and ListGroup.css would clash
-import "./App.css";
 
 function App() {
   let items = ["New York", "San Francisco", "Tokyo", "London", "Paris"];
