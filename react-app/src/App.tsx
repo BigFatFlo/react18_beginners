@@ -6,6 +6,7 @@ import { BsFillCalendarFill } from "react-icons/bs";
 import Like from "./components/Like";
 import produce from "immer";
 import ExpandableText from "./components/ExpandableText";
+import Form from "./components/Form";
 
 function App() {
   const [bugs, setBugs] = useState([
@@ -65,6 +66,7 @@ function App() {
       <ExpandableText maxChars={10}>
         Here is a very long text that should be shortened for visibility
       </ExpandableText>
+      <Form />
     </>
   );
 }
