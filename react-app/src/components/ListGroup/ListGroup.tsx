@@ -1,20 +1,4 @@
 import { MouseEvent, useState } from "react";
-import styled from "styled-components";
-
-const List = styled.ul`
-  list-style: none;
-  padding: 0;
-  background-color: yellow;
-`;
-
-interface ListItemProps {
-  active: boolean;
-}
-
-const ListItem = styled.li<ListItemProps>`
-  padding: 5px 0;
-  background: ${(props) => (props.active ? "blue" : "none")};
-`;
 
 interface Props {
   items: string[];
@@ -24,7 +8,7 @@ interface Props {
 
 function ListGroup({ items, heading, onSelectItem }: Props) {
   // Using a state hook
-  const [selectedIndex, setSelectedItem] = useState(0);
+  const [selectedIndex, setSelectedItem] = useState(-1);
 
   //   const getMessage = () => {
   //     return items.length === 0 ? <p>No items found</p> : null;
@@ -37,10 +21,14 @@ function ListGroup({ items, heading, onSelectItem }: Props) {
       {items.length === 0 && <p>No items found</p>}
       {/* We can replace the previous line with a function call*/}
       {/* {getMessage()} */}
-      <List>
+      <ul className="list-group">
         {items.map((item, index) => (
-          <ListItem
-            active={index === selectedIndex}
+          <li
+            className={
+              selectedIndex === index
+                ? "list-group-item active"
+                : "list-group-item"
+            }
             key={item}
             onClick={() => {
               setSelectedItem(index);
@@ -48,9 +36,9 @@ function ListGroup({ items, heading, onSelectItem }: Props) {
             }}
           >
             {item}
-          </ListItem>
+          </li>
         ))}
-      </List>
+      </ul>
     </>
   );
 }

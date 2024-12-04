@@ -2,6 +2,7 @@ import { useState } from "react";
 import Alert from "./components/Alert";
 import Button from "./components/Button";
 import ListGroup from "./components/ListGroup";
+import { BsFillCalendarFill } from "react-icons/bs";
 
 function App() {
   let items = ["New York", "San Francisco", "Tokyo", "London", "Paris"];
@@ -30,6 +31,7 @@ function App() {
       <Button onClick={handleButtonClick} color="danger">
         Click me!
       </Button>
+      <BsFillCalendarFill color="blue" size={40} />
     </div>
   );
 }
