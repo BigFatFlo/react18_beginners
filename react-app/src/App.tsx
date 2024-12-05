@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Alert from "./components/Alert";
 import Button from "./components/Button/Button";
 import ListGroup from "./components/ListGroup";
@@ -14,6 +14,16 @@ import categories from "./expense-tracker/categories";
 
 function App() {
   const [selectedCategory, setSelectedCategory] = useState("");
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  // After render, always call at the top of the component
+  useEffect(() => {
+    if (inputRef.current) inputRef.current.focus();
+  });
+
+  useEffect(() => {
+    document.title = "My App";
+  });
 
   const [expenses, setExpenses] = useState([
     { id: 1, description: "aaa", amount: 10, category: "Utilities" },
@@ -100,6 +110,9 @@ function App() {
         expenses={visibleExpenses}
         onDelete={(id) => setExpenses(expenses.filter((e) => e.id !== id))}
       />
+      <div>
+        <input ref={inputRef} type="text" className="form-control" />
+      </div>
     </>
   );
 }
